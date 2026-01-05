@@ -166,7 +166,6 @@ document.querySelectorAll(".product-card").forEach((card) => {
 // Gallery item interactions
 document.querySelectorAll(".gallery-item").forEach((item) => {
   item.addEventListener("click", function () {
-
     const ripple = document.createElement("div");
     ripple.style.position = "absolute";
     ripple.style.borderRadius = "50%";
@@ -185,7 +184,6 @@ document.querySelectorAll(".gallery-item").forEach((item) => {
     }, 600);
   });
 });
-
 
 // Add ripple animation keyframes
 const style = document.createElement("style");
@@ -408,9 +406,15 @@ document.addEventListener("keydown", (e) => {
     document.body.style.animation = "rainbow 2s infinite";
     setTimeout(() => {
       document.body.style.animation = "";
-      alert(
-        "🐔 Easter egg found! Artasy Chicken appreciates curious visitors! 🎉"
-      );
+      Swal.fire({
+        title: "🐔 Easter egg found!",
+        text: "Artasy Chicken appreciates curious visitors! 🎉",
+        icon: "success",
+        confirmButtonColor:
+          getComputedStyle(document.documentElement).getPropertyValue(
+            "--secondary"
+          ) || "#FB8500",
+      });
     }, 2000);
   }
 });
